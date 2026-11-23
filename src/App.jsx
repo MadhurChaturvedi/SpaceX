@@ -1,86 +1,83 @@
-import { useState } from 'react'
+import Navbar from './components/Navbar/Navbar'
 import launchImg from './assets/launch.jpg'
 import marsImg from './assets/mars.jpg'
 import falconImg from './assets/falcon.jpg'
 import './App.css'
 
-const missions = [
-  {
-    eyebrow: 'RECENT LAUNCH',
-    title: 'STARSHIP’S\nTENTH FLIGHT TEST',
-    action: 'REWATCH',
-    image: launchImg,
-  },
-  {
-    eyebrow: 'UPCOMING LAUNCH',
-    title: 'NROL-77 MISSION',
-    action: 'WATCH',
-    image: falconImg,
-  },
-  {
-    eyebrow: 'ADVANCING HUMANITY',
-    title: 'MAKING LIFE\nMULTIPLANETARY',
-    action: 'EXPLORE',
-    image: marsImg,
-  },
-]
-
 function App() {
-  const [menuOpen, setMenuOpen] = useState(false)
-
   return (
-    <main>
-      <header className="site-nav" aria-label="Main navigation">
-        <a className="brand" href="#" aria-label="SpaceX home">
-          <span>SPACEX</span>
-        </a>
-        <nav className={menuOpen ? 'nav-links is-open' : 'nav-links'}>
-          <a href="#vehicles" onClick={() => setMenuOpen(false)}>FALCON 9</a>
-          <a href="#vehicles" onClick={() => setMenuOpen(false)}>FALCON HEAVY</a>
-          <a href="#vehicles" onClick={() => setMenuOpen(false)}>DRAGON</a>
-          <a href="#starship" onClick={() => setMenuOpen(false)}>STARSHIP</a>
-          <a href="#human" onClick={() => setMenuOpen(false)}>HUMAN SPACEFLIGHT</a>
-          <a href="#rideshare" onClick={() => setMenuOpen(false)}>RIDESHARE</a>
-          <a href="#shop" onClick={() => setMenuOpen(false)}>SHOP</a>
-        </nav>
-        <button
-          className="menu-button"
-          type="button"
-          aria-expanded={menuOpen}
-          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-          onClick={() => setMenuOpen((open) => !open)}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
-      </header>
+    <div className="app-shell">
+      <Navbar />
 
-      {missions.map((mission, index) => (
-        <section
-          className="mission-band"
-          id={index === 0 ? 'starship' : index === 1 ? 'vehicles' : 'human'}
-          key={mission.title}
-          style={{ '--band-image': `url(${mission.image})` }}
-        >
-          <div className="band-content">
-            <p className="eyebrow">{mission.eyebrow}</p>
-            <h1>{mission.title}</h1>
-            <a className="ghost-button" href="#watch">{mission.action}</a>
-          </div>
-        </section>
-      ))}
-
-      <footer className="footer">
-        <div className="footer-links">
-          <a href="#contact">CONTACT</a>
-          <a href="#careers">CAREERS</a>
-          <a href="#updates">UPDATES</a>
-          <a href="#privacy">PRIVACY POLICY</a>
+      {/* Sections structured with matching IDs for active navigation & smooth scroll */}
+      <section id="home" className="section-container hero-section">
+        <div className="section-backdrop" style={{ backgroundImage: `url(${launchImg})` }}>
+          <div className="backdrop-gradient" />
         </div>
-        <p>SPACEX © 2026</p>
-      </footer>
-    </main>
+        <div className="section-content">
+          <p className="section-eyebrow">RECENT LAUNCH</p>
+          <h1 className="section-title">STARSHIP’S<br />FLIGHT TEST</h1>
+          <a className="spacex-ghost-btn" href="#launches">EXPLORE MISSION</a>
+        </div>
+      </section>
+
+      <section id="launches" className="section-container">
+        <div className="section-content">
+          <p className="section-eyebrow">SCHEDULE</p>
+          <h2 className="section-title">UPCOMING LAUNCHES</h2>
+          <p className="section-lead">Live countdown and flight manifests from Starbase and Cape Canaveral.</p>
+        </div>
+      </section>
+
+      <section id="rockets" className="section-container">
+        <div className="section-backdrop" style={{ backgroundImage: `url(${falconImg})` }}>
+          <div className="backdrop-gradient" />
+        </div>
+        <div className="section-content">
+          <p className="section-eyebrow">LAUNCH VEHICLES</p>
+          <h2 className="section-title">FALCON & HEAVY</h2>
+          <p className="section-lead">The world's first orbital class reusable rockets.</p>
+        </div>
+      </section>
+
+      <section id="starship" className="section-container">
+        <div className="section-backdrop" style={{ backgroundImage: `url(${launchImg})` }}>
+          <div className="backdrop-gradient" />
+        </div>
+        <div className="section-content">
+          <p className="section-eyebrow">NEXT GENERATION</p>
+          <h2 className="section-title">STARSHIP</h2>
+          <p className="section-lead">Complete reusability for interplanetary transport.</p>
+        </div>
+      </section>
+
+      <section id="mars" className="section-container">
+        <div className="section-backdrop" style={{ backgroundImage: `url(${marsImg})` }}>
+          <div className="backdrop-gradient" />
+        </div>
+        <div className="section-content">
+          <p className="section-eyebrow">THE DESTINATION</p>
+          <h2 className="section-title">ROAD TO MARS</h2>
+          <p className="section-lead">Establishing a permanent, self-sustaining human presence.</p>
+        </div>
+      </section>
+
+      <section id="missions" className="section-container">
+        <div className="section-content">
+          <p className="section-eyebrow">HUMAN SPACEFLIGHT</p>
+          <h2 className="section-title">MISSIONS</h2>
+          <p className="section-lead">Commercial crew, lunar lander contracts, and deep space exploration.</p>
+        </div>
+      </section>
+
+      <section id="contact" className="section-container contact-section">
+        <div className="section-content">
+          <p className="section-eyebrow">COMMUNICATION</p>
+          <h2 className="section-title">CONTACT & INQUIRIES</h2>
+          <p className="section-lead">Media requests, payload ride-share, and commercial launch opportunities.</p>
+        </div>
+      </section>
+    </div>
   )
 }
 
