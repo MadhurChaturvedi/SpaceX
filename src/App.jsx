@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar/Navbar'
 import Hero from './components/Hero/Hero'
 import Launches from './components/Launches/Launches'
+import Rockets from './components/Rockets/Rockets'
 import launchImg from './assets/launch.jpg'
 import marsImg from './assets/mars.jpg'
 import falconImg from './assets/falcon.jpg'
@@ -17,16 +18,8 @@ function App() {
       {/* Launches: Real-Time Manifests, Countdown Timer & Milestone Missions */}
       <Launches />
 
-      <section id="rockets" className="section-container">
-        <div className="section-backdrop" style={{ backgroundImage: `url(${falconImg})` }}>
-          <div className="backdrop-gradient" />
-        </div>
-        <div className="section-content">
-          <p className="section-eyebrow">LAUNCH VEHICLES</p>
-          <h2 className="section-title">FALCON & HEAVY</h2>
-          <p className="section-lead">The world's first orbital class reusable rockets.</p>
-        </div>
-      </section>
+      {/* Rockets: 3D Interactive Model Viewer & Engineering Specs */}
+      <Rockets />
 
       <section id="starship" className="section-container">
         <div className="section-backdrop" style={{ backgroundImage: `url(${launchImg})` }}>
