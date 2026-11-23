@@ -5,41 +5,45 @@ import Rockets from './components/Rockets/Rockets'
 import StarshipSection from './components/Starship/StarshipSection'
 import MarsSection from './components/Mars/MarsSection'
 import Missions from './components/Missions/Missions'
-import launchImg from './assets/launch.jpg'
-import marsImg from './assets/mars.jpg'
-import falconImg from './assets/falcon.jpg'
+import ContactSection from './components/Contact/ContactSection'
+import Footer from './components/Contact/Footer'
+import LoadingScreen from './components/common/LoadingScreen'
 import './App.css'
 
 function App() {
   return (
     <div className="app-shell">
+      {/* SpaceX Mission Control Telemetry Loading Screen */}
+      <LoadingScreen />
+
+      {/* Sticky Blurred Glass Navigation Bar */}
       <Navbar />
 
-      {/* Hero: Full-screen 3D Space Scene & Telemetry */}
-      <Hero />
+      <main id="main-content">
+        {/* 1. Hero: Full-Screen 3D Space Scene with Starfield & Mouse Parallax */}
+        <Hero />
 
-      {/* Launches: Real-Time Manifests, Countdown Timer & Milestone Missions */}
-      <Launches />
+        {/* 2. Launches: Real-Time Manifests, Live Countdown & Mission Briefs */}
+        <Launches />
 
-      {/* Rockets: 3D Interactive Model Viewer & Engineering Specs */}
-      <Rockets />
+        {/* 3. Rockets: 3D Interactive Model Viewer & Engineering Specs */}
+        <Rockets />
 
-      {/* Starship: Scroll-driven Flight Stages & Subsystems */}
-      <StarshipSection />
+        {/* 4. Starship: Interactive Flight Profile & Subsystem Architecture */}
+        <StarshipSection />
 
-      {/* Mars: 3D Interactive Mars Globe & Road to Mars Timeline */}
-      <MarsSection />
+        {/* 5. Mars: 3D Interactive Rotating Mars Globe & Settlement Timeline */}
+        <MarsSection />
 
-      {/* Missions: Dragon, Starlink, Rideshare & Deep Space Missions */}
-      <Missions />
+        {/* 6. Missions: Dragon, Starlink, Rideshare & NASA Artemis Contracts */}
+        <Missions />
 
-      <section id="contact" className="section-container contact-section">
-        <div className="section-content">
-          <p className="section-eyebrow">COMMUNICATION</p>
-          <h2 className="section-title">CONTACT & INQUIRIES</h2>
-          <p className="section-lead">Media requests, payload ride-share, and commercial launch opportunities.</p>
-        </div>
-      </section>
+        {/* 7. Contact: Real-Time Validated Communications Transmission */}
+        <ContactSection />
+      </main>
+
+      {/* Official SpaceX Footer */}
+      <Footer />
     </div>
   )
 }

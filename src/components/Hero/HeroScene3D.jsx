@@ -5,13 +5,10 @@ import heroFallbackImg from '../../assets/launch.jpg'
 
 export default function HeroScene3D() {
   const mountRef = useRef(null)
-  const [webglSupported, setWebglSupported] = useState(true)
+  const [webglSupported] = useState(() => isWebGLAvailable())
 
   useEffect(() => {
-    if (!isWebGLAvailable()) {
-      setWebglSupported(false)
-      return
-    }
+    if (!webglSupported) return
 
     const container = mountRef.current
     if (!container) return
@@ -284,7 +281,7 @@ export default function HeroScene3D() {
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate)
-      const delta = clock.getDelta()
+      clock.getDelta()
       const time = clock.getElapsedTime()
 
       // Smooth mouse parallax interpolation
@@ -332,7 +329,7 @@ export default function HeroScene3D() {
       steelMaterial.dispose()
       blackTilesMaterial.dispose()
     }
-  }, [])
+  }, [webglSupported])
 
   if (!webglSupported) {
     return (

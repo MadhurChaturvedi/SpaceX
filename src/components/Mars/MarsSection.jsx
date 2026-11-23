@@ -55,6 +55,7 @@ export default function MarsSection() {
 
         {/* The Road to Mars Timeline Navigation */}
         <div className="timeline-section-header">
+          <span className="phase-pill">SELECTED: {activeMilestone.phase} ({activeMilestone.year})</span>
           <h3 className="timeline-title">EXPLORATION & SETTLEMENT TIMELINE</h3>
           <p className="timeline-sub">
             Chronological stages from low Earth orbit propellant transfer to full in-situ resource utilization.

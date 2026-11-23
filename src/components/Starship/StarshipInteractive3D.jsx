@@ -6,7 +6,7 @@ import './Starship.css'
 
 export default function StarshipInteractive3D({ activeStageIndex }) {
   const mountRef = useRef(null)
-  const [webglSupported, setWebglSupported] = useState(true)
+  const [webglSupported] = useState(() => isWebGLAvailable())
 
   const boosterMeshRef = useRef(null)
   const shipMeshRef = useRef(null)
@@ -15,10 +15,7 @@ export default function StarshipInteractive3D({ activeStageIndex }) {
   const sceneRef = useRef(null)
 
   useEffect(() => {
-    if (!isWebGLAvailable()) {
-      setWebglSupported(false)
-      return
-    }
+    if (!webglSupported) return
 
     const container = mountRef.current
     if (!container) return
@@ -189,11 +186,8 @@ export default function StarshipInteractive3D({ activeStageIndex }) {
     window.addEventListener('resize', handleResize)
 
     // 7. Render Loop with Target State Lerping
-    let clock = new THREE.Clock()
-
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate)
-      const time = clock.getElapsedTime()
 
       // Continuous subtle yaw drift
       if (!reducedMotion) {
@@ -213,7 +207,7 @@ export default function StarshipInteractive3D({ activeStageIndex }) {
       renderer.dispose()
       scene.clear()
     }
-  }, [])
+  }, [webglSupported])
 
   // Update 3D Stage Configurations whenever activeStageIndex changes
   useEffect(() => {

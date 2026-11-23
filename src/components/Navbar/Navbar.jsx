@@ -1,15 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
+import { NAV_LINKS } from './navLinks'
 import './Navbar.css'
-
-export const NAV_LINKS = [
-  { id: 'home', label: 'Home' },
-  { id: 'launches', label: 'Launches' },
-  { id: 'rockets', label: 'Rockets' },
-  { id: 'starship', label: 'Starship' },
-  { id: 'mars', label: 'Mars' },
-  { id: 'missions', label: 'Missions' },
-  { id: 'contact', label: 'Contact' },
-]
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)

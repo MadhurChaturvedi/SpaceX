@@ -6,17 +6,14 @@ import './Mars.css'
 
 export default function MarsGlobe3D() {
   const mountRef = useRef(null)
-  const [webglSupported, setWebglSupported] = useState(true)
+  const [webglSupported] = useState(() => isWebGLAvailable())
   const [isAutoRotate, setIsAutoRotate] = useState(true)
   const isDraggingRef = useRef(false)
   const previousPosRef = useRef({ x: 0, y: 0 })
   const marsGroupRef = useRef(null)
 
   useEffect(() => {
-    if (!isWebGLAvailable()) {
-      setWebglSupported(false)
-      return
-    }
+    if (!webglSupported) return
 
     const container = mountRef.current
     if (!container) return
@@ -125,7 +122,7 @@ export default function MarsGlobe3D() {
     marsGroup.add(atmosShell)
 
     // Landing Site Markers (Arcadia Planitia & Jezero Crater)
-    const createMarker = (lat, lon, label) => {
+    const createMarker = (lat, lon) => {
       const phi = (90 - lat) * (Math.PI / 180)
       const theta = (lon + 180) * (Math.PI / 180)
       const x = -(marsRadius * 1.01 * Math.sin(phi) * Math.cos(theta))
@@ -223,7 +220,7 @@ export default function MarsGlobe3D() {
       atmosMat.dispose()
       marsTexture.dispose()
     }
-  }, [isAutoRotate])
+  }, [isAutoRotate, webglSupported])
 
   if (!webglSupported) {
     return (

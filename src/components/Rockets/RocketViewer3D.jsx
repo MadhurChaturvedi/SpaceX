@@ -6,7 +6,7 @@ import './Rockets.css'
 
 export default function RocketViewer3D({ rocketType }) {
   const mountRef = useRef(null)
-  const [webglSupported, setWebglSupported] = useState(true)
+  const [webglSupported] = useState(() => isWebGLAvailable())
   const [isAutoSpin, setIsAutoSpin] = useState(true)
   const isDraggingRef = useRef(false)
   const previousMousePositionRef = useRef({ x: 0, y: 0 })
@@ -14,10 +14,7 @@ export default function RocketViewer3D({ rocketType }) {
   const rocketGroupRef = useRef(null)
 
   useEffect(() => {
-    if (!isWebGLAvailable()) {
-      setWebglSupported(false)
-      return
-    }
+    if (!webglSupported) return
 
     const container = mountRef.current
     if (!container) return
@@ -363,7 +360,7 @@ export default function RocketViewer3D({ rocketType }) {
       renderer.dispose()
       scene.clear()
     }
-  }, [rocketType, isAutoSpin])
+  }, [rocketType, isAutoSpin, webglSupported])
 
   if (!webglSupported) {
     return (
