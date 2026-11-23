@@ -1,4 +1,5 @@
 import Navbar from './components/Navbar/Navbar'
+import Hero from './components/Hero/Hero'
 import launchImg from './assets/launch.jpg'
 import marsImg from './assets/mars.jpg'
 import falconImg from './assets/falcon.jpg'
@@ -9,17 +10,8 @@ function App() {
     <div className="app-shell">
       <Navbar />
 
-      {/* Sections structured with matching IDs for active navigation & smooth scroll */}
-      <section id="home" className="section-container hero-section">
-        <div className="section-backdrop" style={{ backgroundImage: `url(${launchImg})` }}>
-          <div className="backdrop-gradient" />
-        </div>
-        <div className="section-content">
-          <p className="section-eyebrow">RECENT LAUNCH</p>
-          <h1 className="section-title">STARSHIP’S<br />FLIGHT TEST</h1>
-          <a className="spacex-ghost-btn" href="#launches">EXPLORE MISSION</a>
-        </div>
-      </section>
+      {/* Hero: Full-screen 3D Space Scene & Telemetry */}
+      <Hero />
 
       <section id="launches" className="section-container">
         <div className="section-content">
