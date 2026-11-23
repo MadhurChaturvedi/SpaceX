@@ -2,6 +2,7 @@ import Navbar from './components/Navbar/Navbar'
 import Hero from './components/Hero/Hero'
 import Launches from './components/Launches/Launches'
 import Rockets from './components/Rockets/Rockets'
+import StarshipSection from './components/Starship/StarshipSection'
 import launchImg from './assets/launch.jpg'
 import marsImg from './assets/mars.jpg'
 import falconImg from './assets/falcon.jpg'
@@ -21,16 +22,8 @@ function App() {
       {/* Rockets: 3D Interactive Model Viewer & Engineering Specs */}
       <Rockets />
 
-      <section id="starship" className="section-container">
-        <div className="section-backdrop" style={{ backgroundImage: `url(${launchImg})` }}>
-          <div className="backdrop-gradient" />
-        </div>
-        <div className="section-content">
-          <p className="section-eyebrow">NEXT GENERATION</p>
-          <h2 className="section-title">STARSHIP</h2>
-          <p className="section-lead">Complete reusability for interplanetary transport.</p>
-        </div>
-      </section>
+      {/* Starship: Scroll-driven Flight Stages & Subsystems */}
+      <StarshipSection />
 
       <section id="mars" className="section-container">
         <div className="section-backdrop" style={{ backgroundImage: `url(${marsImg})` }}>

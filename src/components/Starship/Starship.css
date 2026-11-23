@@ -1,0 +1,304 @@
+.starship-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--canvas-night-soft);
+  padding: 120px 0 100px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.starship-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 48px;
+  box-sizing: border-box;
+}
+
+.starship-header {
+  margin-bottom: 36px;
+}
+
+.starship-eyebrow {
+  margin: 0 0 12px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--on-primary-mute);
+  text-transform: uppercase;
+}
+
+.starship-title {
+  margin: 0 0 16px;
+  font-family: var(--font-display);
+  font-size: clamp(38px, 5.5vw, 68px);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.starship-lead {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #cfcfe0;
+  max-width: 720px;
+  margin: 0;
+}
+
+/* Scrub Tabs */
+.stage-nav-strip {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 40px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+}
+
+.stage-nav-tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  color: #8e8e98;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+}
+
+.stage-nav-tab:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.stage-nav-tab.is-active {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+.stage-num {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+/* Layout */
+.starship-showcase-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+/* 3D Viewport */
+.starship-viewer-card {
+  height: 620px;
+  background: radial-gradient(circle at center, #0e111a 0%, #030408 100%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
+}
+
+.starship-canvas-wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.starship-webgl {
+  width: 100%;
+  height: 100%;
+}
+
+.starship-fallback-img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.starship-viewer-meta {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 10px 18px;
+  backdrop-filter: blur(8px);
+}
+
+.live-camera-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  color: #00ff88;
+}
+
+.viewer-step-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.step-btn {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #ffffff;
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.step-btn:hover:not(:disabled) {
+  background: #ffffff;
+  color: #000000;
+}
+
+.step-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Info Card */
+.starship-info-card {
+  background: #09090d;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 44px;
+}
+
+.stage-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #00ff88;
+  margin-bottom: 12px;
+}
+
+.stage-main-title {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: clamp(30px, 3.8vw, 42px);
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  color: #ffffff;
+}
+
+.stage-highlight {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--on-primary-mute);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.stage-description {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #d1d1dc;
+  margin: 0 0 32px;
+}
+
+.stage-telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 24px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 32px;
+}
+
+.telemetry-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.telemetry-box-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: var(--on-primary-mute);
+}
+
+.telemetry-box-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.starship-cta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.starship-action-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 28px;
+  border: 1px solid #ffffff;
+  border-radius: 28px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  transition: all 0.25s ease;
+}
+
+.starship-action-btn:hover {
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.starship-fleet-note {
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  font-weight: 600;
+  color: var(--on-primary-mute);
+}
+
+@media (max-width: 1080px) {
+  .starship-showcase-grid {
+    grid-template-columns: 1fr;
+  }
+  .starship-viewer-card {
+    height: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .starship-container {
+    padding: 0 20px;
+  }
+  .starship-info-card {
+    padding: 24px;
+  }
+  .stage-telemetry-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
