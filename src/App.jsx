@@ -3,6 +3,8 @@ import Hero from './components/Hero/Hero'
 import Launches from './components/Launches/Launches'
 import Rockets from './components/Rockets/Rockets'
 import StarshipSection from './components/Starship/StarshipSection'
+import MarsSection from './components/Mars/MarsSection'
+import Missions from './components/Missions/Missions'
 import launchImg from './assets/launch.jpg'
 import marsImg from './assets/mars.jpg'
 import falconImg from './assets/falcon.jpg'
@@ -25,24 +27,11 @@ function App() {
       {/* Starship: Scroll-driven Flight Stages & Subsystems */}
       <StarshipSection />
 
-      <section id="mars" className="section-container">
-        <div className="section-backdrop" style={{ backgroundImage: `url(${marsImg})` }}>
-          <div className="backdrop-gradient" />
-        </div>
-        <div className="section-content">
-          <p className="section-eyebrow">THE DESTINATION</p>
-          <h2 className="section-title">ROAD TO MARS</h2>
-          <p className="section-lead">Establishing a permanent, self-sustaining human presence.</p>
-        </div>
-      </section>
+      {/* Mars: 3D Interactive Mars Globe & Road to Mars Timeline */}
+      <MarsSection />
 
-      <section id="missions" className="section-container">
-        <div className="section-content">
-          <p className="section-eyebrow">HUMAN SPACEFLIGHT</p>
-          <h2 className="section-title">MISSIONS</h2>
-          <p className="section-lead">Commercial crew, lunar lander contracts, and deep space exploration.</p>
-        </div>
-      </section>
+      {/* Missions: Dragon, Starlink, Rideshare & Deep Space Missions */}
+      <Missions />
 
       <section id="contact" className="section-container contact-section">
         <div className="section-content">
