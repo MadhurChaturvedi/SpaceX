@@ -1,5 +1,6 @@
 import Navbar from './components/Navbar/Navbar'
 import Hero from './components/Hero/Hero'
+import Launches from './components/Launches/Launches'
 import launchImg from './assets/launch.jpg'
 import marsImg from './assets/mars.jpg'
 import falconImg from './assets/falcon.jpg'
@@ -13,13 +14,8 @@ function App() {
       {/* Hero: Full-screen 3D Space Scene & Telemetry */}
       <Hero />
 
-      <section id="launches" className="section-container">
-        <div className="section-content">
-          <p className="section-eyebrow">SCHEDULE</p>
-          <h2 className="section-title">UPCOMING LAUNCHES</h2>
-          <p className="section-lead">Live countdown and flight manifests from Starbase and Cape Canaveral.</p>
-        </div>
-      </section>
+      {/* Launches: Real-Time Manifests, Countdown Timer & Milestone Missions */}
+      <Launches />
 
       <section id="rockets" className="section-container">
         <div className="section-backdrop" style={{ backgroundImage: `url(${falconImg})` }}>
