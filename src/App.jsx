@@ -1,5 +1,6 @@
 import Navbar from './components/Navbar/Navbar'
 import Hero from './components/Hero/Hero'
+import MoonSection from './components/Moon/MoonSection'
 import Launches from './components/Launches/Launches'
 import Rockets from './components/Rockets/Rockets'
 import StarshipSection from './components/Starship/StarshipSection'
@@ -23,22 +24,25 @@ function App() {
         {/* 1. Hero: Full-Screen 3D Space Scene with Starfield & Mouse Parallax */}
         <Hero />
 
-        {/* 2. Launches: Real-Time Manifests, Live Countdown & Mission Briefs */}
+        {/* 2. Moon: Enterprise 3D Moon Simulation from Earth */}
+        <MoonSection />
+
+        {/* 3. Launches: Real-Time Manifests, Live Countdown & Mission Briefs */}
         <Launches />
 
-        {/* 3. Rockets: 3D Interactive Model Viewer & Engineering Specs */}
+        {/* 4. Rockets: 3D Interactive Model Viewer & Engineering Specs */}
         <Rockets />
 
-        {/* 4. Starship: Interactive Flight Profile & Subsystem Architecture */}
+        {/* 5. Starship: Interactive Flight Profile & Subsystem Architecture */}
         <StarshipSection />
 
-        {/* 5. Mars: 3D Interactive Rotating Mars Globe & Settlement Timeline */}
+        {/* 6. Mars: 3D Interactive Rotating Mars Globe & Settlement Timeline */}
         <MarsSection />
 
-        {/* 6. Missions: Dragon, Starlink, Rideshare & NASA Artemis Contracts */}
+        {/* 7. Missions: Dragon, Starlink, Rideshare & NASA Artemis Contracts */}
         <Missions />
 
-        {/* 7. Contact: Real-Time Validated Communications Transmission */}
+        {/* 8. Contact: Real-Time Validated Communications Transmission */}
         <ContactSection />
       </main>
 

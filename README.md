@@ -8,7 +8,7 @@ A cutting-edge, high-performance web experience inspired by SpaceX’s engineeri
 
 ### 1. Advanced Sticky Navigation
 - **Fixed & Glassmorphic**: Sticky header with smooth transition from transparent to blurred glass on scroll (`backdrop-filter: blur(20px)`).
-- **Active Section Highlighting**: Uses `IntersectionObserver` to highlight the current section (`#home`, `#launches`, `#rockets`, `#starship`, `#mars`, `#missions`, `#contact`) as the user navigates.
+- **Active Section Highlighting**: Uses `IntersectionObserver` to highlight the current section (`#home`, `#moon`, `#launches`, `#rockets`, `#starship`, `#mars`, `#missions`, `#contact`) as the user navigates.
 - **Accessible Mobile Drawer**: Smooth slide-in navigation drawer for mobile devices with body scroll-locking and focus trapping.
 - **Keyboard Accessible**: Full support for `:focus-visible`, ARIA labels, and `Escape` key menu dismissal.
 
@@ -17,6 +17,17 @@ A cutting-edge, high-performance web experience inspired by SpaceX’s engineeri
 - **Multi-Layered Starfield**: Over 3,200 stars with dynamic twinkling and spectral color variations.
 - **Smooth Mouse Parallax**: Camera position smoothly lerps in response to cursor position.
 - **Live Mission Telemetry**: Real-time UTC clock and live launch telemetry badges.
+
+### 3. Enterprise 3D Moon Simulation from Earth
+- **Earth Vantage Point Observation**: Accurate 3D simulation of Earth's natural satellite featuring Mare Imbrium, Oceanus Procellarum, Mare Serenitatis, Mare Tranquillitatis, and Tycho crater ray systems.
+- **Dynamic Solar Phase Angle Scrubber**: Real-time terminator shadow progression across all 8 lunar phases (New Moon, Waxing Crescent, First Quarter, Gibbous, Full Moon, Waning Crescent).
+- **Multiple Observation Vantages**:
+  - `Earth Night Sky`: Naked-eye atmospheric view from Earth with lower atmospheric airglow.
+  - `Telescopic Zoom`: Optical magnification directly onto lunar surface topography and crater walls.
+  - `3D Orbital Inspection`: 360° interactive rotation around the lunar sphere with physics damping.
+  - `Earth-Moon Orbital System`: 384,400 km astronomical scale view with Starship Trans-Lunar Injection (TLI) flight path.
+- **Surface Landmark Telemetry**: Interactive beacon markers for Apollo 11 (Tranquility Base), Artemis III South Pole (Shackleton Crater), Tycho Crater, and Oceanus Procellarum.
+- **Live Astronomical Telemetry**: Mean distance, perigee, apogee, orbital velocity, and synodic period tracking.
 
 ### 3. Launches & Live Countdown
 - **Real-Time Countdown**: Live ticking timer (days, hours, minutes, seconds) targeting upcoming launches.

@@ -1,0 +1,483 @@
+.moon-simulation-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--canvas-night);
+  padding: 120px 0 100px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.moon-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 48px;
+  box-sizing: border-box;
+}
+
+.moon-header {
+  margin-bottom: 36px;
+}
+
+.moon-eyebrow {
+  margin: 0 0 12px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #00ff88;
+  text-transform: uppercase;
+}
+
+.moon-title {
+  margin: 0 0 16px;
+  font-family: var(--font-display);
+  font-size: clamp(38px, 5.5vw, 68px);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.moon-lead {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #cfcfe0;
+  max-width: 720px;
+  margin: 0;
+}
+
+/* Telemetry Strip */
+.lunar-telemetry-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.telemetry-node {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.telemetry-node-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: var(--on-primary-mute);
+}
+
+.telemetry-node-val {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.highlight-cyan {
+  color: #00ff88;
+}
+
+/* Simulation Stage Layout */
+.moon-simulation-stage {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* 3D Viewport Card */
+.moon-viewport-card {
+  height: 680px;
+  background: radial-gradient(circle at center, #0d111c 0%, #020306 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
+}
+
+.moon-simulation-canvas-wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.moon-webgl-canvas {
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+.moon-webgl-canvas:active {
+  cursor: grabbing;
+}
+
+.canvas-hud-top {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+}
+
+.hud-phase-name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 6px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hud-phase-meta {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #00ff88;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 6px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.canvas-hud-bottom {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hud-viewmode-indicator {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(0, 0, 0, 0.75);
+  padding: 6px 12px;
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+.hud-clear-landmark-btn {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 12px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.hud-clear-landmark-btn:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Control Deck Panel */
+.moon-control-deck {
+  background: #08080c;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.deck-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.deck-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--on-primary-mute);
+  text-transform: uppercase;
+}
+
+/* Vantage Button Group */
+.vantage-button-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.vantage-btn {
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  color: #9e9ea7;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.vantage-btn:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.vantage-btn.is-active {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+/* Phase Slider */
+.slider-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slider-degree-readout {
+  font-size: 11px;
+  font-weight: 700;
+  color: #00ff88;
+  letter-spacing: 1px;
+}
+
+.phase-slider {
+  width: 100%;
+  accent-color: #ffffff;
+  cursor: pointer;
+  margin: 4px 0;
+}
+
+.phase-presets-row {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.preset-btn {
+  padding: 6px 10px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  color: #8e8e96;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.preset-btn:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.preset-btn.is-active {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.phase-synopsis-text {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #a0a0ab;
+  margin: 4px 0 0;
+}
+
+/* Landmarks List */
+.landmarks-nav-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.landmark-tab-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.landmark-tab-btn:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.landmark-tab-btn.is-active {
+  border-color: #00ff88;
+  background: rgba(0, 255, 136, 0.08);
+}
+
+.lm-btn-name {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+.lm-btn-feature {
+  font-size: 9px;
+  color: var(--on-primary-mute);
+}
+
+/* Landmark Detail Card */
+.landmark-detail-card {
+  background: #0f131a;
+  border: 1px solid rgba(0, 255, 136, 0.25);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.lm-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.lm-date-tag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #00ff88;
+}
+
+.lm-card-title {
+  margin: 4px 0 0;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+.lm-close-btn {
+  font-size: 20px;
+  line-height: 1;
+  color: var(--on-primary-mute);
+  padding: 2px;
+}
+
+.lm-desc {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #cfcfe0;
+  margin: 0 0 14px;
+}
+
+.lm-spacex-box {
+  background: rgba(0, 0, 0, 0.4);
+  border-left: 2px solid #00ff88;
+  padding: 10px 12px;
+  border-radius: 0 6px 6px 0;
+}
+
+.lm-spacex-tag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #00ff88;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.lm-spacex-text {
+  font-size: 11px;
+  line-height: 1.5;
+  color: #b0b0be;
+  margin: 0;
+}
+
+.landmark-placeholder {
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  text-align: center;
+  font-size: 11px;
+  color: var(--on-primary-mute);
+  line-height: 1.5;
+}
+
+/* Action button */
+.moon-action-row {
+  margin-top: 8px;
+}
+
+.moon-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 14px 24px;
+  border: 1px solid #ffffff;
+  border-radius: 28px;
+  background: transparent;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+}
+
+.moon-cta-btn:hover {
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.35);
+}
+
+@media (max-width: 1080px) {
+  .moon-simulation-stage {
+    grid-template-columns: 1fr;
+  }
+  .moon-viewport-card {
+    height: 520px;
+  }
+}
+
+@media (max-width: 768px) {
+  .moon-container {
+    padding: 0 20px;
+  }
+  .moon-control-deck {
+    padding: 24px;
+  }
+  .lunar-telemetry-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .vantage-button-group,
+  .landmarks-nav-list {
+    grid-template-columns: 1fr;
+  }
+}
